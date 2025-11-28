@@ -1,12 +1,10 @@
 services:
-  mongodb: #--name mongodb
+  mongodb:
     image: mongodb:v1
 
-networks:
-  default:
-    driver: bridge
-    name: roboshop
-    external: false #true if you have created manually using docker network command
-    
-    
-    
+    networks:
+      default:
+        driver: bridge
+        name: roboshop
+        external: false #true if you have created network manually using docker network command
+        
