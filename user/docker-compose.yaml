@@ -1,5 +1,5 @@
 services:
-  mongodb:
+  mongodb: # --name mongodb
     image: mongodb:v1
 
 
