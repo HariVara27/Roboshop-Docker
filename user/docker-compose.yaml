@@ -1,4 +1,4 @@
-services: #docker compose
+services: 
   mongodb:
     image: mongodb:v1
     container_name: mongodb
@@ -25,7 +25,7 @@ services: #docker compose
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
-    volumes: # -v rabbitmq:/var/lib/rabbitmq
+    volumes: 
       - rabbitmq:/var/lib/rabbitmq
   user:
     image: user:v1
