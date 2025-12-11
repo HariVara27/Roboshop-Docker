@@ -20,10 +20,10 @@ services:
     volumes:
       - redis:/data
   mysql:
-  build: ./mysql
-  image: mysql:v1
-  container_name: mysql
-  volumes:
+    build: ./mysql
+    image: mysql:v1
+    container_name: mysql
+    volumes:
      - mysql:/var/lib/mysql
   rabbitmq:
     image: rabbitmq:3
@@ -34,41 +34,41 @@ services:
     volumes: 
       - rabbitmq:/var/lib/rabbitmq
   user:
-  build: ./user
-  image: user:v1
-  container_name: user
-  depends_on:
+    build: ./user
+    image: user:v1
+    container_name: user
+    depends_on:
     - mongodb
     - redis
   cart:
-  build: ./cart
-  image: cart:v1
-  container_name: cart
-  depends_on:
+    build: ./cart
+    image: cart:v1
+    container_name: cart
+    depends_on:
     - redis
     - catalogue
   shipping:
-  build: ./shipping
-  image: shipping:v1
-  container_name: shipping
-  depends_on:
+    build: ./shipping
+    image: shipping:v1
+    container_name: shipping
+    depends_on:
     - mysql
     - cart
   payment:
-  build: ./payment
-  image: payment:v1
-  container_name: payment
-  depends_on:
-   - rabbitmq
-   - cart
-   - user
+    build: ./payment
+    image: payment:v1
+    container_name: payment
+    depends_on:
+     - rabbitmq
+     - cart
+     - user
   frontend:
-  build: ./frontend
-  image: frontend:v1
-  container_name: frontend
-  ports:
+    build: ./frontend
+    image: frontend:v1
+    container_name: frontend
+    ports:
       - "80:80"
-  depends_on:
+    depends_on:
       - user
       - catalogue
       - cart
