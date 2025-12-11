@@ -1,6 +1,6 @@
 services: 
   mongodb:
-  build: 
+    build: 
       context: ./mongodb
       image: mongodb:v1
       container_name: mongodb
